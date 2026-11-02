@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentions Légales — Lumière Blanche</title>
+  <meta name="description" content="Mentions légales, politique de confidentialité et conditions d'utilisation du site Lumière Blanche." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel+Decorative:wght@400;700&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Page Mentions Légales ── */
+    .legal-page { cursor: auto; }
+    .legal-page .cursor, .legal-page .cursor-trail { display: none; }
+    .legal-page button { cursor: pointer; }
+    .legal-page .nav-logo a { display: flex; align-items: center; gap: 0.75rem; }
+
+    .legal-hero {
+      position: relative;
+      padding: 11rem 2rem 4rem;
+      text-align: center;
+      overflow: hidden;
+      z-index: 2;
+    }
+    .legal-hero-orb {
+      position: absolute;
+      top: -30%; left: 50%;
+      width: 600px; height: 600px;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(212,175,55,0.09) 0%, transparent 70%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+    .legal-hero-content { position: relative; z-index: 2; }
+    .legal-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 6vw, 3.6rem);
+      color: var(--text);
+      letter-spacing: 0.02em;
+      margin: 0.5rem 0 1rem;
+    }
+    .legal-hero-sub {
+      color: var(--text-muted);
+      font-style: italic;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .legal-updated {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.35rem 1.1rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .legal-main {
+      position: relative;
+      z-index: 2;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 2rem 2rem 6rem;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* Sommaire */
+    .legal-toc {
+      position: sticky;
+      top: 110px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 1.5rem;
+    }
+    .legal-toc h2 {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.1rem;
+    }
+    .legal-toc ol {
+      list-style: none;
+      counter-reset: toc;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .legal-toc li { counter-increment: toc; }
+    .legal-toc a {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      transition: color var(--transition);
+    }
+    .legal-toc a::before {
+      content: counter(toc) ". ";
+      color: var(--gold-dim);
+    }
+    .legal-toc a:hover { color: var(--gold-light); }
+
+    /* Contenu */
+    .legal-content { min-width: 0; }
+    .legal-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2.25rem 2rem;
+      margin-bottom: 1.75rem;
+      scroll-margin-top: 110px;
+    }
+    .legal-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      color: var(--gold-light);
+      line-height: 1.35;
+      margin-bottom: 0.4rem;
+    }
+    .legal-section h3 {
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 1.75rem 0 0.6rem;
+    }
+    .legal-section-rule {
+      width: 60px; height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 0 0 1.4rem;
+    }
+    .legal-section p { color: var(--text-muted); margin-bottom: 1rem; }
+    .legal-section p:last-child { margin-bottom: 0; }
+    .legal-section strong { color: var(--text); font-weight: 600; }
+    .legal-section a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+    .legal-section a:hover { color: var(--gold-light); }
+    .legal-section ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin: 0 0 1rem;
+    }
+    .legal-section ul li {
+      position: relative;
+      padding-left: 1.5rem;
+      color: var(--text-muted);
+    }
+    .legal-section ul li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--gold-dim);
+      font-size: 0.75rem;
+      top: 0.25rem;
+    }
+
+    /* Fiche d'identité (couples clé / valeur) */
+    .legal-dl {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 0.1rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .legal-dl dt {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(212,175,55,0.08);
+    }
+    .legal-dl dd {
+      color: var(--text);
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(212,175,55,0.08);
+    }
+
+    /* Champ à compléter par l'éditeur */
+    .fill {
+      display: inline-block;
+      padding: 0.1rem 0.55rem;
+      border: 1px dashed var(--gold-dim);
+      border-radius: var(--radius);
+      background: rgba(212,175,55,0.06);
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+    }
+
+    .legal-note {
+      border-left: 2px solid var(--gold-dim);
+      background: rgba(212,175,55,0.05);
+      padding: 1.1rem 1.4rem;
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      margin: 1.2rem 0;
+    }
+    .legal-note p { color: var(--text); }
+
+    .legal-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1rem;
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+    .legal-back:hover { color: var(--gold); }
+
+    .legal-footer {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2.5rem 2rem 3rem;
+      border-top: 1px solid var(--border);
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+    }
+    .legal-footer a { color: var(--gold); }
+
+    @media (max-width: 900px) {
+      .legal-main { grid-template-columns: 1fr; gap: 2rem; padding: 1rem 1.5rem 4rem; }
+      .legal-toc { position: static; }
+      .legal-hero { padding: 9rem 1.5rem 3rem; }
+      .legal-section { padding: 1.75rem 1.4rem; }
+      .legal-dl { grid-template-columns: 1fr; gap: 0; }
+      .legal-dl dt { border-bottom: none; padding-bottom: 0; }
+    }
+  </style>
+</head>
+<body class="legal-page">
+
+<canvas id="starCanvas"></canvas>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">
+    <a href="index.html">
+      <span class="nav-logo-symbol">✦</span>
+      <span class="nav-logo-text">Lumière Blanche</span>
+    </a>
+  </div>
+  <button class="nav-burger" id="navBurger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="nav-link">Accueil</a></li>
+    <li><a href="index.html#services" class="nav-link">Services</a></li>
+    <li><a href="index.html#tarifs" class="nav-link">Tarifs</a></li>
+    <li><a href="index.html#contact" class="nav-link nav-link--cta">Réserver</a></li>
+  </ul>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="legal-hero">
+  <div class="legal-hero-orb"></div>
+  <div class="legal-hero-content">
+    <span class="section-label section-label--center">Informations légales</span>
+    <h1 class="legal-hero-title">Mentions Légales</h1>
+    <p class="legal-hero-sub">
+      Conformément aux articles 6-III et 19 de la loi n° 2004-575 du 21 juin 2004 pour la Confiance
+      dans l'Économie Numérique (LCEN) et au Règlement (UE) 2016/679 (RGPD).
+    </p>
+    <span class="legal-updated">Dernière mise à jour : <span class="fill">16 / 08 / 2026</span></span>
+  </div>
+</header>
+
+<main class="legal-main">
+
+  <!-- ===================== SOMMAIRE ===================== -->
+  <aside class="legal-toc">
+    <h2>Sommaire</h2>
+    <ol>
+      <li><a href="#proprietaire">Propriétaire du site</a></li>
+      <li><a href="#editeur">Éditeur du site</a></li>
+      <li><a href="#hebergeur">Hébergeur</a></li>
+      <li><a href="#activite">Nature de l'activité</a></li>
+      <li><a href="#propriete">Propriété intellectuelle</a></li>
+      <li><a href="#donnees">Données personnelles</a></li>
+      <li><a href="#cookies">Cookies</a></li>
+      <li><a href="#prestations">Prestations, prix &amp; paiement</a></li>
+      <li><a href="#retractation">Droit de rétractation</a></li>
+      <li><a href="#mediation">Médiation à la consommation</a></li>
+      <li><a href="#responsabilite">Responsabilité</a></li>
+      <li><a href="#liens">Liens hypertextes</a></li>
+      <li><a href="#accessibilite">Accessibilité</a></li>
+      <li><a href="#droit">Droit applicable</a></li>
+      <li><a href="#contact-legal">Contact</a></li>
+    </ol>
+  </aside>
+
+  <!-- ===================== CONTENU ===================== -->
+  <div class="legal-content">
+
+    <div class="legal-note">
+      <p>
+        ✦ Les champs encadrés en pointillés sont à compléter par l'éditeur du site avant la mise en ligne.
+      </p>
+    </div>
+
+    <!-- 1 -->
+    <section class="legal-section" id="proprietaire">
+      <h2>1. Propriétaire du site</h2>
+      <div class="legal-section-rule"></div>
+      <p>Le présent site est exploité et publié par :</p>
+      <dl class="legal-dl">
+        <dt>Dénomination / Nom</dt>
+        <dd><span class="fill">Tranchart</span></dd>
+
+        <dt>Forme juridique</dt>
+        <dd><span class="fill">EURL</span></dd>
+
+        <dt>Nom commercial</dt>
+        <dd>Lumière Blanche</dd>
+
+        <dt>Adresse du siège</dt>
+        <dd><span class="fill">6 Rue Saint-Jean, 64500 Saint-Jean de Luz</span></dd>
+
+        <dt>Numéro SIRET</dt>
+        <dd><span class="fill">10394318900011</span></dd>
+
+        <dt>Code APE / NAF</dt>
+        <dd><span class="fill">4778C</span></dd>
+
+        <dt>N° TVA intracommunautaire</dt>
+        <dd><span class="fill">TVA Non Applicable</span></dd>
+
+        <dt>Capital social</dt>
+        <dd><span class="fill">1000€ </span></dd>
+
+        <dt>RCS / RM</dt>
+        <dd><span class="fill">103 943 189 R.C.S. Bayonne</span></dd>
+
+        <dt>Téléphone</dt>
+        <dd><span class="fill">+336 09 84 62 95</span></dd>
+
+        <dt>Email</dt>
+        <dd><a href="mailto:contact@lumiereblanche.fr">contact@lumiereblanche.fr</a></dd>
+
+        <dt>Directeur de la publication</dt>
+        <dd><span class="fill">Tranchart Evan</span></dd>
+      </dl>
+      <p>
+        Pour toute question relative au site ou à son contenu, vous pouvez écrire à l'adresse email
+        indiquée ci-dessus.
+      </p>
+    </section>
+
+    <!-- 2 -->
+    <section class="legal-section" id="editeur">
+      <h2>2. Éditeur du site</h2>
+      <div class="legal-section-rule"></div>
+      <p>La conception et l'édition technique du site sont assurées par :</p>
+      <dl class="legal-dl">
+        <dt>Dénomination</dt>
+        <dd>Visionare</dd>
+
+        <dt>Activité</dt>
+        <dd>Agence web — conception, édition et maintenance du site</dd>
+
+        <dt>Adresse</dt>
+        <dd>80 Place Saint-Léger, 73000 Chambéry, France</dd>
+
+        <dt>Site web</dt>
+        <dd><a href="https://visionare.fr" target="_blank" rel="noopener">https://visionare.fr</a></dd>
+      </dl>
+      <p>
+        L'agence intervient en qualité de prestataire technique. Les contenus éditoriaux publiés sur
+        le site relèvent de la responsabilité du propriétaire du site mentionné à la section
+        précédente.
+      </p>
+    </section>
+
+    <!-- 3 -->
+    <section class="legal-section" id="hebergeur">
+      <h2>3. Hébergeur</h2>
+      <div class="legal-section-rule"></div>
+      <p>Le site est hébergé par :</p>
+      <dl class="legal-dl">
+        <dt>Raison sociale</dt>
+        <dd>Vercel Inc.</dd>
+
+        <dt>Adresse</dt>
+        <dd>440 N Barranca Ave #4133, Covina, CA 91723, États-Unis</dd>
+
+        <dt>Site web</dt>
+        <dd><a href="https://vercel.com" target="_blank" rel="noopener">https://vercel.com</a></dd>
+
+        <dt>Contact</dt>
+        <dd><a href="mailto:privacy@vercel.com">privacy@vercel.com</a></dd>
+      </dl>
+      <p>
+        L'hébergement est assuré sur l'infrastructure de Vercel. Les éventuels transferts de données
+        en dehors de l'Union européenne sont encadrés par les clauses contractuelles types de la
+        Commission européenne, conformément aux garanties précisées dans la section
+        « Données personnelles ».
+      </p>
+    </section>
+
+    <!-- 3 -->
+    <section class="legal-section" id="activite">
+      <h2>4. Nature de l'activité</h2>
+      <div class="legal-section-rule"></div>
+      <p>
+        Lumière Blanche propose des consultations de <strong>tirage de cartes</strong>, de guidance
+        spirituelle et de <strong>rééquilibrage énergétique de l'habitat</strong>, réalisées en ligne
+        ou en présentiel.
+      </p>
+      <p>
+        Ces prestations relèvent du <strong>divertissement et du développement personnel</strong>.
+        Elles ne constituent en aucun cas un avis ou un acte médical, paramédical, psychologique,
+        juridique, patrimonial ou financier, et ne se substituent pas à une consultation auprès d'un
+        professionnel qualifié. Aucun diagnostic, aucun traitement et aucune promesse de résultat
+        ne sont formulés dans le cadre de ces prestations.
+      </p>
+      <p>
+        Les prestations sont <strong>réservées aux personnes majeures</strong> (18 ans et plus).
+        En cas d'urgence ou de détresse psychologique, il convient de contacter un professionnel de
+        santé ou les services d'urgence compétents.
+      </p>
+    </section>
+
+    <!-- 4 -->
+    <section class="legal-section" id="propriete">
+      <h2>5. Propriété intellectuelle</h2>
+      <div class="legal-section-rule"></div>
+      <p>
+        L'ensemble des éléments composant le site — structure, textes, illustrations, logo,
+        graphismes, photographies, animations, code source, charte graphique et identité visuelle —
+        est la propriété exclusive de l'éditeur ou de ses ayants droit, et est protégé par le Code de
+        la propriété intellectuelle.
+      </p>
+      <p>
+        Toute reproduction, représentation, modification, publication, adaptation, extraction ou
+        exploitation, totale ou partielle, de ces éléments, par quelque procédé et sur quelque
+        support que ce soit, est interdite sans l'autorisation écrite préalable de l'éditeur.
+        Toute exploitation non autorisée est susceptible de constituer une contrefaçon au sens des
+        articles L.335-2 et suivants du Code de la propriété intellectuelle.
+      </p>
+      <h3>Marques et polices</h3>
+      <p>
+        Les marques et logos figurant sur le site sont la propriété de leurs titulaires respectifs.
+        Les polices de caractères utilisées sont fournies sous leurs licences respectives.
+      </p>
+    </section>
+
+    <!-- 5 -->
+    <section class="legal-section" id="donnees">
+      <h2>6. Données personnelles &amp; confidentialité</h2>
+      <div class="legal-section-rule"></div>
+      <p>
+        Conformément au Règlement (UE) 2016/679 (RGPD) et à la loi « Informatique et Libertés »
+        n° 78-17 du 6 janvier 1978 modifiée, vous êtes informé(e) du traitement de vos données
+        personnelles dans les conditions décrites ci-après.
+      </p>
+
+      <h3>Responsable du traitement</h3>
+      <p>
+        <span class="fill">Nom du responsable de traitement</span> —
+        contact : <a href="mailto:contact@lumiereblanche.fr">contact@lumiereblanche.fr</a>.
+      </p>
+
+      <h3>Données collectées</h3>
+      <ul>
+        <li><strong>Formulaire de contact :</strong> prénom, adresse email, service souhaité, contenu du message.</li>
+        <li><strong>Réservation de consultation :</strong> nom, email, créneau choisi, informations transmises lors de la prise de rendez-vous.</li>
+        <li><strong>Données techniques :</strong> adresse IP, type de navigateur, pages consultées, horodatage (journaux de connexion du serveur).</li>
+      </ul>
+
+      <h3>Finalités et bases légales</h3>
+      <ul>
+        <li><strong>Répondre à vos demandes</strong> via le formulaire de contact — base légale : mesures précontractuelles / intérêt légitime.</li>
+        <li><strong>Gérer les rendez-vous et les prestations</strong> — base légale : exécution du contrat.</li>
+        <li><strong>Assurer la sécurité et le bon fonctionnement du site</strong> — base légale : intérêt légitime.</li>
+        <li><strong>Respecter les obligations comptables et fiscales</strong> — base légale : obligation légale.</li>
+      </ul>
+
+      <h3>Durées de conservation</h3>
+      <ul>
+        <li>Demandes de contact : <strong>3 ans</strong> à compter du dernier échange.</li>
+        <li>Données liées aux prestations : <strong>durée de la relation contractuelle</strong>, puis archivage selon les obligations légales.</li>
+        <li>Pièces comptables : <strong>10 ans</strong> (article L.123-22 du Code de commerce).</li>
+        <li>Journaux de connexion : <strong>12 mois</strong> maximum.</li>
+      </ul>
+
+      <h3>Destinataires</h3>
+      <p>
+        Vos données sont destinées exclusivement à l'éditeur du site et, le cas échéant, à ses
+        sous-traitants techniques agissant sur instruction : hébergeur, service de prise de
+        rendez-vous en ligne (<span class="fill">ex. Cal.com</span>), service d'envoi d'emails
+        (<span class="fill">le cas échéant</span>), service d'affichage des avis clients
+        (<span class="fill">ex. Elfsight / Google Avis</span>).
+        Vos données ne sont <strong>ni vendues, ni louées, ni cédées</strong> à des tiers à des fins
+        commerciales.
+      </p>
+      <p>
+        Lorsqu'un prestataire est situé hors de l'Union européenne, le transfert est encadré par des
+        garanties appropriées (clauses contractuelles types de la Commission européenne).
+      </p>
+
+      <h3>Vos droits</h3>
+      <p>
+        Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition,
+        de portabilité de vos données, ainsi que du droit de définir des directives relatives à leur
+        sort après votre décès. Vous pouvez exercer ces droits à tout moment en écrivant à
+        <a href="mailto:contact@lumiereblanche.fr">contact@lumiereblanche.fr</a>, en justifiant de
+        votre identité. Une réponse vous sera apportée dans un délai maximum d'un mois.
+      </p>
+      <p>
+        En cas de désaccord persistant, vous avez le droit d'introduire une réclamation auprès de la
+        <strong>CNIL</strong> — 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07 —
+        <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>.
+      </p>
+
+      <h3>Confidentialité des consultations</h3>
+      <p>
+        Le contenu des consultations est strictement confidentiel. Aucun enregistrement, aucune
+        retranscription et aucun élément relatif à une consultation ne sont communiqués à des tiers.
+      </p>
+    </section>
+
+    <!-- 6 -->
+    <section class="legal-section" id="cookies">
+      <h2>7. Cookies</h2>
+      <div class="legal-section-rule"></div>
+      <p>
+        Un cookie est un fichier déposé sur votre terminal lors de la visite d'un site. Le présent
+        site utilise uniquement :
+      </p>
+      <ul>
+        <li>
+          <strong>Cookies et stockage strictement nécessaires :</strong> mémorisation de votre choix
+          relatif au bandeau cookies, sécurité et bon fonctionnement du site. Ils ne requièrent pas
+          votre consentement préalable.
+        </li>
+        <li>
+          <strong>Cookies tiers liés aux services intégrés :</strong> module de réservation en ligne
+          et affichage des avis clients. Ces services peuvent déposer des cookies qui leur sont
+          propres lorsque vous interagissez avec eux.
+        </li>
+      </ul>
+      <p>
+        <strong>Aucun cookie publicitaire ni de profilage marketing n'est utilisé.</strong>
+      </p>
+      <p>
+        Vous pouvez à tout moment modifier votre choix en effaçant les données du site dans les
+        réglages de votre navigateur, ou configurer celui-ci pour refuser les cookies. Le refus de
+        certains cookies peut affecter le fonctionnement de la réservation en ligne.
+      </p>
+    </section>
+
+    <!-- 7 -->
+    <section class="legal-section" id="prestations">
+      <h2>8. Prestations, prix et paiement</h2>
+      <div class="legal-section-rule"></div>
+      <p>
+        Les prix des prestations sont indiqués en euros. La séance individuelle est proposée au tarif
+        de <strong>60 €</strong> ; la prestation de rééquilibrage énergétique de l'habitat fait
+        l'objet d'un <strong>devis personnalisé</strong> établi selon le nombre de pièces et la
+        nature de l'intervention.
+      </p>
+      <p>
+        Mention de TVA applicable : <span class="fill">TVA non applicable, art. 293 B du CGI — ou taux applicable</span>.
+      </p>
+      <p>
+        Moyens de paiement acceptés : <span class="fill">virement, espèces, carte bancaire…</span>.
+        Modalités de règlement : <span class="fill">à préciser (acompte, règlement à la réservation ou en fin de séance)</span>.
+      </p>
+      <p>
+        Conditions d'annulation ou de report d'un rendez-vous :
+        <span class="fill">ex. annulation gratuite jusqu'à 24 h avant la séance</span>.
+      </p>
+    </section>
+
+    <!-- 8 -->
+    <section class="legal-section" id="retractation">
+      <h2>9. Droit de rétractation</h2>
+      <div class="legal-section-rule"></div>
+      <p>
+        Conformément à l'article L.221-18 du Code de la consommation, le consommateur dispose d'un
+        délai de <strong>quatorze (14) jours</strong> à compter de la conclusion du contrat pour
+        exercer son droit de rétractation, sans avoir à motiver sa décision ni à supporter de
+        pénalité, pour les contrats conclus à distance ou hors établissement.
+      </p>
+      <p>
+        En application de l'article L.221-25 du même code, si vous demandez expressément que la
+        prestation débute avant la fin de ce délai, vous restez redevable du montant correspondant au
+        service déjà fourni. Le droit de rétractation ne peut plus être exercé lorsque la prestation
+        a été <strong>pleinement exécutée</strong> avant la fin du délai avec votre accord préalable
+        exprès et votre renoncement exprès à ce droit.
+      </p>
+      <p>
+        Pour exercer ce droit, il suffit d'adresser une demande non ambiguë par email à
+        <a href="mailto:contact@lumiereblanche.fr">contact@lumiereblanche.fr</a>.
+        Le remboursement intervient dans un délai maximum de 14 jours suivant la réception de la
+        demande, par le même moyen de paiement que celui utilisé lors de la commande.
+      </p>
+    </section>
+
+    <!-- 9 -->
+    <section class="legal-section" id="mediation">
+      <h2>10. Médiation à la consommation</h2>
+      <div class="legal-section-rule"></div>
+      <p>
+        Conformément à l'article L.612-1 du Code de la consommation, tout consommateur a le droit de
+        recourir gratuitement à un médiateur de la consommation en vue de la résolution amiable d'un
+        litige, après avoir tenté une résolution directe auprès de l'éditeur.
+      </p>
+      <dl class="legal-dl">
+        <dt>Médiateur désigné</dt>
+        <dd><span class="fill">Nom du médiateur</span></dd>
+
+        <dt>Adresse</dt>
+        <dd><span class="fill">Adresse postale du médiateur</span></dd>
+
+        <dt>Site web</dt>
+        <dd><span class="fill">URL du médiateur</span></dd>
+      </dl>
+      <p>
+        Une plateforme européenne de règlement en ligne des litiges est également mise à disposition
+        par la Commission européenne :
+        <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a>.
+      </p>
+    </section>
+
+    <!-- 10 -->
+    <section class="legal-section" id="responsabilite">
+      <h2>11. Limitation de responsabilité</h2>
+      <div class="legal-section-rule"></div>
+      <p>
+        L'éditeur s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur
+        le site, sans pouvoir en garantir l'exhaustivité. Les informations sont fournies à titre
+        indicatif et sont susceptibles d'évoluer à tout moment.
+      </p>
+      <p>
+        L'éditeur ne saurait être tenu responsable des dommages directs ou indirects résultant de
+        l'accès au site, de son utilisation, d'une interruption de service, de la présence d'un virus
+        ou de l'interprétation faite des contenus et des consultations.
+      </p>
+      <p>
+        <strong>Les décisions prises à la suite d'une consultation relèvent de la seule
+        responsabilité de la personne consultante</strong>, qui conserve à tout moment son libre
+        arbitre.
+      </p>
+    </section>
+
+    <!-- 11 -->
+    <section class="legal-section" id="liens">
+      <h2>12. Liens hypertextes</h2>
+      <div class="legal-section-rule"></div>
+      <p>
+        Le site peut contenir des liens vers des sites tiers (réseaux sociaux, plateforme de
+        réservation, avis clients). L'éditeur n'exerce aucun contrôle sur ces sites et décline toute
+        responsabilité quant à leur contenu, leurs pratiques et leurs politiques de confidentialité.
+      </p>
+      <p>
+        La création d'un lien vers le présent site est libre dès lors qu'elle ne porte pas atteinte
+        à l'image de Lumière Blanche et n'induit pas en erreur sur l'origine du contenu.
+      </p>
+    </section>
+
+    <!-- 12 -->
+    <section class="legal-section" id="accessibilite">
+      <h2>13. Accessibilité et disponibilité</h2>
+      <div class="legal-section-rule"></div>
+      <p>
+        Le site est en principe accessible 24 h/24 et 7 j/7, sauf interruption programmée ou non,
+        notamment pour des besoins de maintenance ou de mise à jour, ou en cas de force majeure.
+        L'éditeur ne saurait être tenu responsable des conséquences d'une indisponibilité.
+      </p>
+      <p>
+        Toute difficulté d'accès ou d'utilisation peut être signalée à
+        <a href="mailto:contact@lumiereblanche.fr">contact@lumiereblanche.fr</a>.
+      </p>
+    </section>
+
+    <!-- 13 -->
+    <section class="legal-section" id="droit">
+      <h2>14. Droit applicable et juridiction compétente</h2>
+      <div class="legal-section-rule"></div>
+      <p>
+        Les présentes mentions légales sont régies par le <strong>droit français</strong>. En cas de
+        litige et à défaut de résolution amiable ou de médiation aboutie, les tribunaux français
+        seront seuls compétents, conformément aux règles de compétence applicables en matière de
+        droit de la consommation.
+      </p>
+      <p>
+        L'éditeur se réserve le droit de modifier à tout moment les présentes mentions légales.
+        La version applicable est celle publiée sur le site au moment de la consultation.
+      </p>
+    </section>
+
+    <!-- 14 -->
+    <section class="legal-section" id="contact-legal">
+      <h2>15. Contact</h2>
+      <div class="legal-section-rule"></div>
+      <p>
+        Pour toute question relative aux présentes mentions légales, à la protection de vos données
+        ou à l'exercice de vos droits :
+      </p>
+      <dl class="legal-dl">
+        <dt>Email</dt>
+        <dd><a href="mailto:contact@lumiereblanche.fr">contact@lumiereblanche.fr</a></dd>
+
+        <dt>Adresse postale</dt>
+        <dd><span class="fill">Adresse complète</span></dd>
+
+        <dt>Instagram</dt>
+        <dd><a href="https://www.instagram.com/lumiere_blanche64" target="_blank" rel="noopener noreferrer">@lumiere_blanche64</a></dd>
+
+        <dt>TikTok</dt>
+        <dd><a href="https://www.tiktok.com/@lumiereblanche_64" target="_blank" rel="noopener noreferrer">@lumiereblanche_64</a></dd>
+      </dl>
+      <a href="index.html" class="legal-back">← Retour à l'accueil</a>
+    </section>
+
+  </div>
+</main>
+
+<footer class="legal-footer">
+  <p>© 2026 Lumière Blanche · Tous droits réservés · <a href="index.html">Accueil</a></p>
+</footer>
+
+<script src="js/stars.js"></script>
+<script>
+  /* ── Menu mobile ── */
+  (function () {
+    const burger = document.getElementById('navBurger');
+    const links  = document.getElementById('navLinks');
+    if (!burger || !links) return;
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('open');
+      links.classList.toggle('open');
+      document.body.style.overflow = links.classList.contains('open') ? 'hidden' : '';
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      burger.classList.remove('open');
+      links.classList.remove('open');
+      document.body.style.overflow = '';
+    }));
+  })();
+</script>
+</body>
+</html>

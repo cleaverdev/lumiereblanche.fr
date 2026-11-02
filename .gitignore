@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# Dépendances
+node_modules/
+
+# Configuration locale avec clés API
+api/config.php
+.env
+.env.local

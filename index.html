@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumière Blanche — L'Âme dans l'Eau</title>
+  <meta name="description" content="Tirage de cartes spirituelles, guidance énergétique et connexion à l'âme. Explorez votre chemin intérieur avec Lumière Blanche." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel+Decorative:wght@400;700&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ===================== CURSOR ===================== -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-trail" id="cursorTrail"></div>
+
+<!-- ===================== LOADER ===================== -->
+<div class="loader" id="loader">
+  <div class="loader-mandala">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <circle class="loader-ring" cx="100" cy="100" r="80" />
+      <circle class="loader-ring loader-ring--2" cx="100" cy="100" r="60" />
+      <circle class="loader-ring loader-ring--3" cx="100" cy="100" r="40" />
+      <g class="loader-petals">
+        <ellipse cx="100" cy="40" rx="8" ry="25" />
+        <ellipse cx="100" cy="40" rx="8" ry="25" transform="rotate(45 100 100)" />
+        <ellipse cx="100" cy="40" rx="8" ry="25" transform="rotate(90 100 100)" />
+        <ellipse cx="100" cy="40" rx="8" ry="25" transform="rotate(135 100 100)" />
+        <ellipse cx="100" cy="40" rx="8" ry="25" transform="rotate(180 100 100)" />
+        <ellipse cx="100" cy="40" rx="8" ry="25" transform="rotate(225 100 100)" />
+        <ellipse cx="100" cy="40" rx="8" ry="25" transform="rotate(270 100 100)" />
+        <ellipse cx="100" cy="40" rx="8" ry="25" transform="rotate(315 100 100)" />
+      </g>
+      <circle cx="100" cy="100" r="8" class="loader-center" />
+    </svg>
+  </div>
+  <p class="loader-text">Connexion à l'univers<span class="loader-dots">...</span></p>
+</div>
+
+<!-- ===================== PARTICLES ===================== -->
+<canvas id="starCanvas"></canvas>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">
+    <span class="nav-logo-symbol">✦</span>
+    <span class="nav-logo-text">Lumière Blanche</span>
+  </div>
+  <button class="nav-burger" id="navBurger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#accueil" class="nav-link">Accueil</a></li>
+    <li><a href="#services" class="nav-link">Services</a></li>
+    <li><a href="#tarifs" class="nav-link">Tarifs</a></li>
+    <li><a href="#contact" class="nav-link nav-link--cta">Réserver</a></li>
+  </ul>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="accueil">
+  <div class="hero-bg">
+    <div class="hero-orb hero-orb--1"></div>
+    <div class="hero-orb hero-orb--2"></div>
+    <div class="hero-orb hero-orb--3"></div>
+    <div class="hero-water"></div>
+  </div>
+
+  <!-- 3D Sacred Geometry -->
+  <div class="hero-3d-container">
+    <div class="hero-3d-scene">
+      <div class="sacred-geo">
+        <div class="geo-ring geo-ring--1"></div>
+        <div class="geo-ring geo-ring--2"></div>
+        <div class="geo-ring geo-ring--3"></div>
+        <div class="geo-ring geo-ring--4"></div>
+        <div class="geo-star"></div>
+        <div class="geo-core">
+          <div class="geo-inner"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-tagline" data-reveal>L'Âme dans l'Eau</p>
+    <h1 class="hero-title" data-reveal>
+      <span class="hero-title-line">Lumière</span>
+      <span class="hero-title-line hero-title-line--accent">Blanche</span>
+    </h1>
+    <p class="hero-subtitle" data-reveal>
+      Plongez au cœur de votre âme.<br/>
+      Découvrez votre chemin lumineux.
+    </p>
+    <div class="hero-cta" data-reveal>
+      <a href="#services" class="btn btn--primary">
+        <span>Mes Services</span>
+        <span class="btn-shimmer"></span>
+      </a>
+      <a href="#about" class="btn btn--ghost">En savoir plus</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Découvrir</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ===================== INTRO SECTION ===================== -->
+<section class="intro" id="intro">
+  <div class="intro-grid">
+    <div class="intro-visual">
+      <div class="intro-mandala">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="mandala-svg">
+          <defs>
+            <radialGradient id="mg1" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="var(--gold)" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="var(--violet)" stop-opacity="0.2"/>
+            </radialGradient>
+          </defs>
+          <!-- Flower of Life pattern -->
+          <g fill="none" stroke="url(#mg1)" stroke-width="0.8" opacity="0.7">
+            <circle cx="200" cy="200" r="60"/>
+            <circle cx="200" cy="140" r="60"/>
+            <circle cx="252" cy="170" r="60"/>
+            <circle cx="252" cy="230" r="60"/>
+            <circle cx="200" cy="260" r="60"/>
+            <circle cx="148" cy="230" r="60"/>
+            <circle cx="148" cy="170" r="60"/>
+            <circle cx="200" cy="200" r="120"/>
+            <circle cx="200" cy="200" r="90"/>
+            <circle cx="200" cy="200" r="150"/>
+          </g>
+          <!-- Star of David -->
+          <polygon points="200,80 230,150 300,150 245,190 265,260 200,220 135,260 155,190 100,150 170,150" fill="none" stroke="var(--gold)" stroke-width="0.5" opacity="0.4"/>
+          <circle cx="200" cy="200" r="15" fill="var(--gold)" opacity="0.6"/>
+          <circle cx="200" cy="200" r="5" fill="var(--gold)" opacity="1"/>
+        </svg>
+        <div class="intro-glow"></div>
+      </div>
+    </div>
+    <div class="intro-text">
+      <span class="section-label" data-reveal>Notre Mission</span>
+      <h2 class="section-title" data-reveal>Votre Lumière Intérieure</h2>
+      <p class="intro-body" data-reveal>
+        Lumiere Blanche est né d'une passion profonde pour l'ésotérisme et les arts divinatoires. Notre pratique allie tradition spirituelle et approche moderne pour offrir une guidance authentique et bienveillante.
+      </p>
+      <p class="intro-body" data-reveal>
+        Chaque tirage de cartes est une invitation à explorer les profondeurs de votre âme, à comprendre les énergies qui vous entourent et à éclairer votre chemin de vie. Nous croyons que chacun porte en soi les réponses à ses questions — notre rôle est de vous aider à les révéler.
+      </p>
+      <div class="intro-stats" data-reveal>
+        <div class="stat">
+          <span class="stat-number" data-count="100">0</span>+
+          <span class="stat-label">Âmes guidées</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-count="10">0</span>
+          <span class="stat-label">Années d'expérience</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-count="100">0</span>%
+          <span class="stat-label">Avec bienveillance</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ===================== SERVICES ===================== -->
+<section class="services" id="services">
+  <div class="container">
+    <span class="section-label section-label--center" data-reveal>Accompagnement</span>
+    <h2 class="section-title section-title--center" data-reveal>Nos Services Énergétiques</h2>
+
+    <div class="services-grid">
+
+      <div class="service-card" data-reveal data-delay="0">
+        <div class="service-card-inner">
+          <div class="service-icon">
+            <div class="service-icon-glow"></div>
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+              <path d="M30 5 L35 25 L55 25 L40 38 L45 58 L30 46 L15 58 L20 38 L5 25 L25 25 Z" fill="none" stroke="var(--gold)" stroke-width="1.5"/>
+              <circle cx="30" cy="30" r="8" fill="var(--gold)" opacity="0.3"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Clarté & Guidance</h3>
+          <p class="service-desc">Nous vous aidons à gagner en clarté sur votre vie, vos choix et vos projets.</p>
+          <div class="service-divider"></div>
+          <a href="#contact" class="service-link">Consulter <span>→</span></a>
+        </div>
+        <div class="service-card-bg"></div>
+      </div>
+
+      <div class="service-card" data-reveal data-delay="100">
+        <div class="service-card-inner">
+          <div class="service-icon">
+            <div class="service-icon-glow"></div>
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="30" cy="30" r="20" fill="none" stroke="var(--gold)" stroke-width="1.5"/>
+              <circle cx="30" cy="30" r="12" fill="none" stroke="var(--gold)" stroke-width="0.8" opacity="0.6"/>
+              <line x1="30" y1="10" x2="30" y2="50" stroke="var(--gold)" stroke-width="0.8" opacity="0.5"/>
+              <line x1="10" y1="30" x2="50" y2="30" stroke="var(--gold)" stroke-width="0.8" opacity="0.5"/>
+              <circle cx="30" cy="30" r="4" fill="var(--gold)"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Gagner du Temps</h3>
+          <p class="service-desc">Consultations rapides et bookings en ligne</p>
+          <div class="service-divider"></div>
+          <a href="#contact" class="service-link">Consulter <span>→</span></a>
+        </div>
+        <div class="service-card-bg"></div>
+      </div>
+
+      <div class="service-card" data-reveal data-delay="200">
+        <div class="service-card-inner">
+          <div class="service-icon">
+            <div class="service-icon-glow"></div>
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+              <path d="M30 8 Q38 20 38 30 Q38 42 30 52 Q22 42 22 30 Q22 20 30 8 Z" fill="none" stroke="var(--gold)" stroke-width="1.5"/>
+              <ellipse cx="30" cy="30" rx="20" ry="8" fill="none" stroke="var(--gold)" stroke-width="0.8" opacity="0.5"/>
+              <circle cx="30" cy="30" r="3" fill="var(--gold)"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Sécurité & Confidentialité</h3>
+          <p class="service-desc">Protection des données et respect de l'intimité des consultations.</p>
+          <div class="service-divider"></div>
+          <a href="#contact" class="service-link">Consulter <span>→</span></a>
+        </div>
+        <div class="service-card-bg"></div>
+      </div>
+
+      <div class="service-card" data-reveal data-delay="300">
+        <div class="service-card-inner">
+          <div class="service-icon">
+            <div class="service-icon-glow"></div>
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+              <path d="M30 5 L30 55 M5 30 L55 30" stroke="var(--gold)" stroke-width="1.5"/>
+              <circle cx="30" cy="30" r="25" fill="none" stroke="var(--gold)" stroke-width="0.8" opacity="0.5"/>
+              <path d="M30 5 Q55 30 30 55 Q5 30 30 5Z" fill="none" stroke="var(--gold)" stroke-width="0.6" opacity="0.4"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Méditation Guidée</h3>
+          <p class="service-desc">Sessions de méditation personnalisées pour vous connecter à votre moi intérieur. Accédez à une paix profonde et durable.</p>
+          <div class="service-divider"></div>
+          <a href="#contact" class="service-link">Consulter <span>→</span></a>
+        </div>
+        <div class="service-card-bg"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TARIFS ===================== -->
+<section class="tarifs" id="tarifs">
+  <div class="tarifs-bg">
+    <div class="tarifs-glow"></div>
+  </div>
+  <div class="container">
+    <span class="section-label section-label--center" data-reveal>Investissement</span>
+    <h2 class="section-title section-title--center" data-reveal>Nos Tarifs</h2>
+    <p class="section-sub" data-reveal>Chaque consultation est un espace sacré. Choisissez la formule qui résonne avec votre chemin.</p>
+
+    <div class="tarifs-grid">
+
+      <div class="tarif-card" data-reveal data-delay="0">
+        <div class="tarif-card-inner">
+          <div class="tarif-symbol">✦</div>
+          <h3 class="tarif-name">Séance Individuelle</h3>
+          <p class="tarif-desc">Consultation privée de tirage de cartes personnalisé</p>
+          <div class="tarif-price-wrap">
+            <span class="tarif-price">60<sup>€</sup></span>
+          </div>
+          <ul class="tarif-features">
+            <li><span>✓</span> 60 à 90 minutes de consultation</li>
+            <li><span>✓</span> Tirage de carte complet</li>
+            <li><span>✓</span> Bilan sur votre situation actuelle</li>
+          </ul>
+          <a href="#contact" class="btn btn--ghost btn--full tarif-cta">Réserver <span class="btn-shimmer"></span></a>
+        </div>
+      </div>
+
+      <div class="tarif-card" data-reveal data-delay="100">
+        <div class="tarif-card-inner">
+          <div class="tarif-symbol">◈</div>
+          <h3 class="tarif-name">Rééquilibrage énergétique de votre habitat</h3>
+          <p class="tarif-desc">Exploration approfondie de votre situation. Tirage complet sur tous les domaines de vie.</p>
+          <div class="tarif-price-wrap">
+            <span class="tarif-price">Sur Devis</span>
+          </div>
+          <ul class="tarif-features">
+            <li><span>✓</span> Temps variable en fonction du nombre de pièces de votre habitat</li>
+            <li><span>✓</span> Rééquilibrage approfondi de votre habitat</li>
+          </ul>
+          <a href="#contact" class="btn btn--ghost btn--full tarif-cta">Réserver <span class="btn-shimmer"></span></a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ===================== ABOUT ===================== -->
+<section class="about" id="about">
+  <div class="about-bg">
+    <div class="about-light"></div>
+  </div>
+  <div class="about-container">
+    <div class="about-visual" data-reveal>
+      <div class="about-portrait-wrap">
+        <div class="about-portrait-placeholder">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="pg" cx="50%" cy="40%" r="60%">
+                <stop offset="0%" stop-color="var(--gold)" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="var(--void)" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <circle cx="100" cy="80" r="45" fill="url(#pg)" stroke="var(--gold)" stroke-width="0.5"/>
+            <path d="M40 180 Q100 120 160 180" fill="url(#pg)" stroke="var(--gold)" stroke-width="0.5"/>
+            <circle cx="100" cy="80" r="20" fill="none" stroke="var(--gold)" stroke-width="0.5" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="about-rings">
+          <div class="about-ring about-ring--1"></div>
+          <div class="about-ring about-ring--2"></div>
+          <div class="about-ring about-ring--3"></div>
+        </div>
+        <div class="about-sigil"></div>
+      </div>
+    </div>
+    <div class="about-text">
+      <span class="section-label" data-reveal>Mon Histoire</span>
+      <h2 class="section-title" data-reveal>L'Âme Derrière la Lumière</h2>
+      <p class="about-body" data-reveal>
+        Depuis mon enfance, j'ai ressenti la présence subtile des énergies qui nous entourent. Cette sensibilité naturelle m'a guidée vers l'étude des arts divinatoires, de la géométrie sacrée et des traditions spirituelles du monde entier.
+      </p>
+      <p class="about-body" data-reveal>
+        Aujourd'hui, je mets ces dons au service de ceux qui cherchent clarté et direction. Chaque consultation est un espace sacré de bienveillance, de vérité et de lumière.
+      </p>
+      <div class="about-values" data-reveal>
+        <div class="value">
+          <span class="value-symbol">✦</span>
+          <div>
+            <strong>Bienveillance</strong>
+            <p>Un espace sûr et sans jugement</p>
+          </div>
+        </div>
+        <div class="value">
+          <span class="value-symbol">◈</span>
+          <div>
+            <strong>Authenticité</strong>
+            <p>Des messages sincères et honnêtes</p>
+          </div>
+        </div>
+        <div class="value">
+          <span class="value-symbol">✧</span>
+          <div>
+            <strong>Transformation</strong>
+            <p>Vous accompagner vers votre lumière</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="testimonials">
+  <div class="container">
+    <span class="section-label section-label--center" data-reveal>Témoignages</span>
+    <h2 class="section-title section-title--center" data-reveal>Ce Que Disent les Âmes</h2>
+
+    <!-- Elfsight Google Reviews -->
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <div class="elfsight-app-3a46e6e5-20d8-4c65-b66d-14e40f2b2f8b" data-elfsight-app-lazy></div>
+
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="contact" id="contact">
+  <div class="contact-bg">
+    <div class="contact-orb"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info" data-reveal>
+      <span class="section-label">Connexion</span>
+      <h2 class="section-title">Entrons en Contact</h2>
+      <p>Prêt(e) à explorer votre chemin intérieur ? Je suis là pour vous guider avec douceur et bienveillance.</p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <span class="contact-icon">✦</span>
+          <div>
+            <strong>Email</strong>
+            <a href="mailto:contact@lumiereblanche.fr">contact@lumiereblanche.fr</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">◈</span>
+          <div>
+            <strong>Disponibilités</strong>
+            <span>Lun–Sam · 9h30–12h30 13h30-18h30</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">✧</span>
+          <div>
+            <strong>Consultation</strong>
+            <span>En ligne ou en présentiel</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form" data-reveal>
+      <div class="form-group">
+        <input type="text" id="name" class="form-input" placeholder=" " required />
+        <label for="name" class="form-label">Votre prénom</label>
+        <span class="form-line"></span>
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" class="form-input" placeholder=" " required />
+        <label for="email" class="form-label">Votre email</label>
+        <span class="form-line"></span>
+      </div>
+      <div class="form-group">
+        <select id="service" class="form-input form-select">
+          <option value="" disabled selected></option>
+          <option value="tirage">Tirage de Cartes</option>
+          <option value="guidance">Guidance Énergétique</option>
+          <option value="voyage">Voyage de l'Âme</option>
+          <option value="meditation">Méditation Guidée</option>
+        </select>
+        <label for="service" class="form-label">Service souhaité</label>
+        <span class="form-line"></span>
+      </div>
+      <div class="form-group">
+        <textarea id="message" class="form-input form-textarea" placeholder=" " rows="4"></textarea>
+        <label for="message" class="form-label">Votre message</label>
+        <span class="form-line"></span>
+      </div>
+      <button type="submit" class="btn btn--primary btn--full">
+        <span>Envoyer mon message</span>
+        <span class="btn-shimmer"></span>
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-symbol">✦</span>
+      <h3>Lumière Blanche</h3>
+      <p>L'Âme dans l'Eau</p>
+    </div>
+    <div class="footer-nav">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#tarifs">Tarifs</a></li>
+        <li><a href="#contact">Réserver</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="mentions.html">Mentions légales</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <h4>Suivez votre lumière</h4>
+      <div class="social-links">
+        <a href="https://www.instagram.com/lumiere_blanche64" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@lumiereblanche_64" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.06-2.82h-3.2v12.4a2.6 2.6 0 0 1-2.6 2.52 2.6 2.6 0 0 1-2.6-2.6 2.6 2.6 0 0 1 3.2-2.53V9.53a5.78 5.78 0 0 0-.6-.03A5.8 5.8 0 0 0 4 15.32a5.8 5.8 0 0 0 5.8 5.8 5.8 5.8 0 0 0 5.8-5.8V9.01a7.45 7.45 0 0 0 4.4 1.42V7.23a4.3 4.3 0 0 1-3.4-1.41z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Lumière Blanche · Tous droits réservés | <a href="mentions.html">Mentions Légales</a></p>
+
+    <a href="https://visionare.fr" target="_blank" rel="noopener noreferrer">
+      <p>Fait avec ✦ et lumière par <span>Visionare</span></p>
+    </a>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/tirage-ai.js"></script>
+<script src="js/main.js"></script>
+
+<!-- ===== COOKIE BANNER ===== -->
+<div class="cookie-banner hidden" id="cookieBanner">
+  <div class="cookie-content">
+    <div class="cookie-icon">🍪</div>
+    <div class="cookie-text">
+      <h3>Respect de votre vie privée</h3>
+      <p>Ce site utilise des cookies essentiels au bon fonctionnement des réservations (Cal.com) et de la navigation. Aucun cookie publicitaire n'est utilisé.</p>
+      <a href="mentions.html" target="_blank">En savoir plus</a>
+    </div>
+    <div class="cookie-buttons">
+      <button class="cookie-btn cookie-btn--accept" id="cookieAccept">
+        ✦ Accepter
+      </button>
+      <button class="cookie-btn cookie-btn--decline" id="cookieDecline">
+        Refuser
+      </button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
